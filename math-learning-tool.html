@@ -137,6 +137,12 @@
       .pe-icon {
         @apply subject-icon bg-pe/80;
       }
+      .nav-link {
+        @apply text-gray-700 hover:text-primary transition-colors duration-300;
+      }
+      .nav-link.active {
+        @apply text-primary font-medium;
+      }
     }
   </style>
 </head>
@@ -150,10 +156,10 @@
         <h1 class="text-xl md:text-2xl font-bold text-primary">趣味学科题生成器</h1>
       </div>
       <div class="hidden md:flex items-center space-x-6">
-        <a href="#home" class="text-gray-700 hover:text-primary transition-colors duration-300">首页</a>
-        <a href="#settings" class="text-gray-700 hover:text-primary transition-colors duration-300">题目设置</a>
-        <a href="#generated-problems" class="text-gray-700 hover:text-primary transition-colors duration-300">生成题目</a>
-        <a href="#about" class="text-gray-700 hover:text-primary transition-colors duration-300">关于我们</a>
+        <a href="#home" class="nav-link" data-section="home">首页</a>
+        <a href="#subjects" class="nav-link" data-section="subjects">选择学科</a>
+        <a href="#settings" class="nav-link" data-section="settings">题目设置</a>
+        <a href="#generated-problems" class="nav-link" data-section="generated-problems">生成题目</a>
       </div>
       <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
         <i class="fa fa-bars text-xl"></i>
@@ -162,10 +168,10 @@
     <!-- 移动端菜单 -->
     <div class="md:hidden hidden bg-white w-full border-t" id="mobile-menu">
       <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
-        <a href="#home" class="text-gray-700 hover:text-primary py-2 transition-colors duration-300">首页</a>
-        <a href="#settings" class="text-gray-700 hover:text-primary py-2 transition-colors duration-300">题目设置</a>
-        <a href="#generated-problems" class="text-gray-700 hover:text-primary py-2 transition-colors duration-300">生成题目</a>
-        <a href="#about" class="text-gray-700 hover:text-primary py-2 transition-colors duration-300">关于我们</a>
+        <a href="#home" class="nav-link py-2" data-section="home">首页</a>
+        <a href="#subjects" class="nav-link py-2" data-section="subjects">选择学科</a>
+        <a href="#settings" class="nav-link py-2" data-section="settings">题目设置</a>
+        <a href="#generated-problems" class="nav-link py-2" data-section="generated-problems">生成题目</a>
       </div>
     </div>
   </nav>
@@ -206,16 +212,16 @@
               <p class="text-gray-500">加法题 - 一年级</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mb-6">
-              <div class="option-card">
+              <div class="option-card answer-option" data-answer="correct">
                 <p class="text-center text-lg font-medium">42</p>
               </div>
-              <div class="option-card">
+              <div class="option-card answer-option">
                 <p class="text-center text-lg font-medium">32</p>
               </div>
-              <div class="option-card">
+              <div class="option-card answer-option">
                 <p class="text-center text-lg font-medium">41</p>
               </div>
-              <div class="option-card">
+              <div class="option-card answer-option">
                 <p class="text-center text-lg font-medium">31</p>
               </div>
             </div>
@@ -224,7 +230,7 @@
                 <i class="fa fa-clock-o text-gray-400"></i>
                 <span class="text-gray-500">00:30</span>
               </div>
-              <button class="btn-accent">
+              <button id="submit-answer" class="btn-accent">
                 提交答案
               </button>
             </div>
@@ -245,7 +251,7 @@
         </h2>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          <div class="text-center p-4 hover:bg-primary/5 rounded-lg transition-all duration-300 cursor-pointer subject-card"
+          <div class="text-center p-4 hover:bg-primary/5 rounded-lg transition-all duration-300 cursor-pointer subject-card active"
             data-subject="math">
             <div class="math-icon mx-auto">
               <i class="fa fa-calculator"></i>
@@ -294,7 +300,7 @@
           <div>
             <h3 class="text-lg font-semibold mb-4">难度级别</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div class="option-card difficulty-card" data-level="kindergarten">
+              <div class="option-card difficulty-card active" data-level="kindergarten">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <i class="fa fa-child"></i>
@@ -427,8 +433,130 @@
                   <label for="chinese-composition" class="font-medium">作文写作</label>
                 </div>
               </div>
+
+              <!-- 英语题目类型 -->
+              <div id="english-types" class="space-y-4 hidden">
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
+                  <input type="checkbox" id="english-vocabulary" class="w-5 h-5 accent-english" checked="">
+                  <label for="english-vocabulary" class="font-medium">词汇</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
+                  <input type="checkbox" id="english-grammar" class="w-5 h-5 accent-english" checked="">
+                  <label for="english-grammar" class="font-medium">语法</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
+                  <input type="checkbox" id="english-reading" class="w-5 h-5 accent-english">
+                  <label for="english-reading" class="font-medium">阅读</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
+                  <input type="checkbox" id="english-writing" class="w-5 h-5 accent-english">
+                  <label for="english-writing" class="font-medium">写作</label>
+                </div>
+              </div>
+
+              <!-- 科学题目类型 -->
+              <div id="science-types" class="space-y-4 hidden">
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
+                  <input type="checkbox" id="science-biology" class="w-5 h-5 accent-science" checked="">
+                  <label for="science-biology" class="font-medium">生物</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
+                  <input type="checkbox" id="science-chemistry" class="w-5 h-5 accent-science" checked="">
+                  <label for="science-chemistry" class="font-medium">化学</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
+                  <input type="checkbox" id="science-physics" class="w-5 h-5 accent-science">
+                  <label for="science-physics" class="font-medium">物理</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
+                  <input type="checkbox" id="science-earth" class="w-5 h-5 accent-science">
+                  <label for="science-earth" class="font-medium">地球科学</label>
+                </div>
+              </div>
+
+              <!-- 历史题目类型 -->
+              <div id="history-types" class="space-y-4 hidden">
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
+                  <input type="checkbox" id="history-ancient" class="w-5 h-5 accent-history" checked="">
+                  <label for="history-ancient" class="font-medium">古代史</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
+                  <input type="checkbox" id="history-medieval" class="w-5 h-5 accent-history" checked="">
+                  <label for="history-medieval" class="font-medium">近代史</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
+                  <input type="checkbox" id="history-modern" class="w-5 h-5 accent-history">
+                  <label for="history-modern" class="font-medium">现代史</label>
+                </div>
+                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
+                  <input type="checkbox" id="history-world" class="w-5 h-5 accent-history">
+                  <label for="history-world" class="font-medium">世界史</label>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 生成题目部分 -->
+    <section id="generated-problems" class="mb-16">
+      <div class="bg-white rounded-2xl shadow-lg p-8 math-card">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <i class="fa fa-list-alt text-primary mr-2"></i> 生成的题目
+        </h2>
+        
+        <div id="problem-container" class="space-y-6">
+          <!-- 题目卡片 -->
+          <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="font-bold text-lg">题目 1</h3>
+              <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">加法题</span>
+            </div>
+            <p class="text-lg mb-4">小明有 24 颗糖果，小红又给了他 18 颗，小明现在一共有多少颗糖果？</p>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">42</p>
+              </div>
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">32</p>
+              </div>
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">41</p>
+              </div>
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">31</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="font-bold text-lg">题目 2</h3>
+              <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">减法题</span>
+            </div>
+            <p class="text-lg mb-4">小华有 56 元钱，买文具用去了 29 元，他还剩下多少钱？</p>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">27</p>
+              </div>
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">37</p>
+              </div>
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">26</p>
+              </div>
+              <div class="option-card">
+                <p class="text-center text-lg font-medium">36</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex justify-center">
+          <button id="generate-more-btn" class="btn-primary flex items-center gap-2">
+            <i class="fa fa-plus"></i> 生成更多题目
+          </button>
         </div>
       </div>
     </section>
@@ -438,44 +566,41 @@
     // 移动端菜单切换
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    menuToggle.addEventListener('click', function () {
+    
+    menuToggle.addEventListener('click', function() {
       mobileMenu.classList.toggle('hidden');
     });
-
-    // 答案选项点击
-    const optionCards = document.querySelectorAll('.option-card');
-    optionCards.forEach(function (card) {
-      card.addEventListener('click', function () {
-        optionCards.forEach(function (c) {
-          c.classList.remove('active');
-        });
-        this.classList.add('active');
-      });
-    });
-
-    // 生成题目按钮点击
-    const generateBtn = document.getElementById('generate-btn');
-    generateBtn.addEventListener('click', function () {
-      alert('正在生成题目，请稍候...');
-    });
-
-    // 下载题库按钮点击
-    const downloadBtn = document.getElementById('download-btn');
-    downloadBtn.addEventListener('click', function () {
-      alert('开始下载题库...');
-    });
-
+    
     // 导航栏滚动样式变化
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
-        navbar.classList.add('bg-opacity-90');
+        navbar.classList.add('bg-opacity-90', 'shadow-lg');
       } else {
-        navbar.classList.remove('bg-opacity-90');
+        navbar.classList.remove('bg-opacity-90', 'shadow-lg');
       }
+      
+      // 更新导航链接的活动状态
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
     });
-  </script>
-</body>
-
-</html>
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
