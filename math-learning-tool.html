@@ -1,4 +1,7 @@
-<html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>趣味学科题生成器</title>
@@ -137,6 +140,7 @@
     }
   </style>
 </head>
+
 <body class="bg-gradient-to-br from-indigo-50 to-purple-50 min-h-screen font-inter text-dark">
   <!-- 导航栏 -->
   <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
@@ -239,33 +243,38 @@
         <h2 class="text-2xl font-bold mb-6 flex items-center">
           <i class="fa fa-th text-primary mr-2"></i> 选择学科
         </h2>
-        
+
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          <div class="text-center p-4 hover:bg-primary/5 rounded-lg transition-all duration-300 cursor-pointer subject-card" data-subject="math">
+          <div class="text-center p-4 hover:bg-primary/5 rounded-lg transition-all duration-300 cursor-pointer subject-card"
+            data-subject="math">
             <div class="math-icon mx-auto">
               <i class="fa fa-calculator"></i>
             </div>
             <h3 class="font-semibold mt-2">数学</h3>
           </div>
-          <div class="text-center p-4 hover:bg-chinese/5 rounded-lg transition-all duration-300 cursor-pointer subject-card" data-subject="chinese">
+          <div class="text-center p-4 hover:bg-chinese/5 rounded-lg transition-all duration-300 cursor-pointer subject-card"
+            data-subject="chinese">
             <div class="chinese-icon mx-auto">
               <i class="fa fa-book"></i>
             </div>
             <h3 class="font-semibold mt-2">语文</h3>
           </div>
-          <div class="text-center p-4 hover:bg-english/5 rounded-lg transition-all duration-300 cursor-pointer subject-card" data-subject="english">
+          <div class="text-center p-4 hover:bg-english/5 rounded-lg transition-all duration-300 cursor-pointer subject-card"
+            data-subject="english">
             <div class="english-icon mx-auto">
               <i class="fa fa-language"></i>
             </div>
             <h3 class="font-semibold mt-2">英语</h3>
           </div>
-          <div class="text-center p-4 hover:bg-science/5 rounded-lg transition-all duration-300 cursor-pointer subject-card" data-subject="science">
+          <div class="text-center p-4 hover:bg-science/5 rounded-lg transition-all duration-300 cursor-pointer subject-card"
+            data-subject="science">
             <div class="science-icon mx-auto">
               <i class="fa fa-flask"></i>
             </div>
             <h3 class="font-semibold mt-2">科学</h3>
           </div>
-          <div class="text-center p-4 hover:bg-history/5 rounded-lg transition-all duration-300 cursor-pointer subject-card" data-subject="history">
+          <div class="text-center p-4 hover:bg-history/5 rounded-lg transition-all duration-300 cursor-pointer subject-card"
+            data-subject="history">
             <div class="history-icon mx-auto">
               <i class="fa fa-university"></i>
             </div>
@@ -398,7 +407,7 @@
                   <label for="math-geometry" class="font-medium">几何问题</label>
                 </div>
               </div>
-              
+
               <!-- 语文题目类型 -->
               <div id="chinese-types" class="space-y-4 hidden">
                 <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-chinese hover:bg-chinese/5 transition-all duration-300">
@@ -417,433 +426,56 @@
                   <input type="checkbox" id="chinese-composition" class="w-5 h-5 accent-chinese">
                   <label for="chinese-composition" class="font-medium">作文写作</label>
                 </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-chinese hover:bg-chinese/5 transition-all duration-300">
-                  <input type="checkbox" id="chinese-poetry" class="w-5 h-5 accent-chinese">
-                  <label for="chinese-poetry" class="font-medium">古诗词</label>
-                </div>
-              </div>
-              
-              <!-- 英语题目类型 -->
-              <div id="english-types" class="space-y-4 hidden">
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
-                  <input type="checkbox" id="english-vocabulary" class="w-5 h-5 accent-english" checked="">
-                  <label for="english-vocabulary" class="font-medium">词汇拼写</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
-                  <input type="checkbox" id="english-grammar" class="w-5 h-5 accent-english" checked="">
-                  <label for="english-grammar" class="font-medium">语法选择</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
-                  <input type="checkbox" id="english-sentence" class="w-5 h-5 accent-english" checked="">
-                  <label for="english-sentence" class="font-medium">句子翻译</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
-                  <input type="checkbox" id="english-reading" class="w-5 h-5 accent-english">
-                  <label for="english-reading" class="font-medium">阅读理解</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-english hover:bg-english/5 transition-all duration-300">
-                  <input type="checkbox" id="english-writing" class="w-5 h-5 accent-english">
-                  <label for="english-writing" class="font-medium">写作</label>
-                </div>
-              </div>
-              
-              <!-- 科学题目类型 -->
-              <div id="science-types" class="space-y-4 hidden">
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
-                  <input type="checkbox" id="science-biology" class="w-5 h-5 accent-science" checked="">
-                  <label for="science-biology" class="font-medium">生物知识</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
-                  <input type="checkbox" id="science-chemistry" class="w-5 h-5 accent-science" checked="">
-                  <label for="science-chemistry" class="font-medium">化学知识</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
-                  <input type="checkbox" id="science-physics" class="w-5 h-5 accent-science" checked="">
-                  <label for="science-physics" class="font-medium">物理知识</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
-                  <input type="checkbox" id="science-earth" class="w-5 h-5 accent-science">
-                  <label for="science-earth" class="font-medium">地球科学</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-science hover:bg-science/5 transition-all duration-300">
-                  <input type="checkbox" id="science-astronomy" class="w-5 h-5 accent-science">
-                  <label for="science-astronomy" class="font-medium">天文学</label>
-                </div>
-              </div>
-              
-              <!-- 历史题目类型 -->
-              <div id="history-types" class="space-y-4 hidden">
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
-                  <input type="checkbox" id="history-ancient" class="w-5 h-5 accent-history" checked="">
-                  <label for="history-ancient" class="font-medium">古代史</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
-                  <input type="checkbox" id="history-medieval" class="w-5 h-5 accent-history" checked="">
-                  <label for="history-medieval" class="font-medium">近代史</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
-                  <input type="checkbox" id="history-modern" class="w-5 h-5 accent-history" checked="">
-                  <label for="history-modern" class="font-medium">现代史</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
-                  <input type="checkbox" id="history-world" class="w-5 h-5 accent-history">
-                  <label for="history-world" class="font-medium">世界历史</label>
-                </div>
-                <div class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-history hover:bg-history/5 transition-all duration-300">
-                  <input type="checkbox" id="history-culture" class="w-5 h-5 accent-history">
-                  <label for="history-culture" class="font-medium">文化史</label>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="mt-8">
-          <h3 class="text-lg font-semibold mb-4">题目数量</h3>
-          <input type="range" min="5" max="50" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary" id="question-count">
-          <div class="flex justify-between text-sm text-gray-500 mt-2">
-            <span>5题</span>
-            <span id="question-count-value">10题</span>
-            <span>50题</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 生成题目部分 -->
-    <section id="generated-problems" class="mb-16">
-      <div class="bg-white rounded-2xl shadow-lg p-8 math-card">
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <i class="fa fa-list-alt text-primary mr-2"></i> 生成的题目
-        </h2>
-        
-        <div id="problem-container" class="space-y-8">
-          <!-- 题目将通过JavaScript动态生成 -->
-        </div>
-        
-        <div class="mt-10 flex justify-center">
-          <button id="download-btn-bottom" class="btn-secondary flex items-center gap-2">
-            <i class="fa fa-download"></i> 下载完整题库
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 关于我们部分 -->
-    <section id="about" class="mb-16">
-      <div class="bg-white rounded-2xl shadow-lg p-8 math-card">
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <i class="fa fa-info-circle text-primary mr-2"></i> 关于我们
-        </h2>
-        
-        <div class="prose max-w-none">
-          <p>趣味学科题生成器是一款专为幼小衔接及小学低年级学生设计的学习工具，旨在通过趣味性的题目设计，激发孩子的学习兴趣，提高学习效果。</p>
-          <p>我们的题库涵盖数学、语文、英语、科学、历史等多个学科，题目难度从幼小衔接到小学六年级逐步递增，满足不同阶段孩子的学习需求。</p>
-          <p>家长可以根据孩子的学习情况，灵活选择学科、难度和题目类型，生成个性化的学习资料，并可下载打印，方便孩子随时随地进行学习。</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 页脚 -->
-  <footer class="bg-dark text-white py-8">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-6 md:mb-0">
-          <div class="flex items-center space-x-2">
-            <i class="fa fa-book text-primary text-2xl"></i>
-            <h2 class="text-xl font-bold">趣味学科题生成器</h2>
-          </div>
-          <p class="text-gray-400 mt-2">让学习变得有趣</p>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-6">
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-            <i class="fa fa-weixin text-xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-            <i class="fa fa-weibo text-xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-            <i class="fa fa-qq text-xl"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-            <i class="fa fa-envelope text-xl"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-        <p>© 2025 软件帮Pro 版权所有</p>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    // 移动菜单切换
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-      const mobileMenu = document.getElementById('mobile-menu');
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', function () {
       mobileMenu.classList.toggle('hidden');
     });
-    
-    // 导航栏滚动效果
-    window.addEventListener('scroll', function() {
+
+    // 答案选项点击
+    const optionCards = document.querySelectorAll('.option-card');
+    optionCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        optionCards.forEach(function (c) {
+          c.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+
+    // 生成题目按钮点击
+    const generateBtn = document.getElementById('generate-btn');
+    generateBtn.addEventListener('click', function () {
+      alert('正在生成题目，请稍候...');
+    });
+
+    // 下载题库按钮点击
+    const downloadBtn = document.getElementById('download-btn');
+    downloadBtn.addEventListener('click', function () {
+      alert('开始下载题库...');
+    });
+
+    // 导航栏滚动样式变化
+    window.addEventListener('scroll', function () {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
-        navbar.classList.add('py-2');
-        navbar.classList.remove('py-3');
+        navbar.classList.add('bg-opacity-90');
       } else {
-        navbar.classList.add('py-3');
-        navbar.classList.remove('py-2');
+        navbar.classList.remove('bg-opacity-90');
       }
     });
-    
-    // 题目数量滑块
-    const questionCountSlider = document.getElementById('question-count');
-    const questionCountValue = document.getElementById('question-count-value');
-    
-    questionCountSlider.addEventListener('input', function() {
-      questionCountValue.textContent = `${this.value}题`;
-    });
-    
-    // 学科选择
-    const subjectCards = document.querySelectorAll('.subject-card');
-    const subjectTypes = ['math-types', 'chinese-types', 'english-types', 'science-types', 'history-types'];
-    
-    subjectCards.forEach(card => {
-      card.addEventListener('click', function() {
-        // 移除所有卡片的选中状态
-        subjectCards.forEach(c => c.classList.remove('active'));
-        // 添加当前卡片的选中状态
-        this.classList.add('active');
-        
-        // 隐藏所有题目类型选项
-        subjectTypes.forEach(type => {
-          document.getElementById(type).classList.add('hidden');
-        });
-        
-        // 显示当前学科的题目类型选项
-        const subject = this.getAttribute('data-subject');
-        document.getElementById(`${subject}-types`).classList.remove('hidden');
-      });
-    });
-    
-    // 默认选中数学学科
-    document.querySelector('.subject-card[data-subject="math"]').click();
-    
-    // 难度级别选择
-    const difficultyCards = document.querySelectorAll('.difficulty-card');
-    
-    difficultyCards.forEach(card => {
-      card.addEventListener('click', function() {
-        // 移除所有难度卡片的选中状态
-        difficultyCards.forEach(c => c.classList.remove('active'));
-        // 添加当前难度卡片的选中状态
-        this.classList.add('active');
-      });
-    });
-    
-    // 默认选中一年级难度
-    document.querySelector('.difficulty-card[data-level="grade1"]').click();
-    
-    // 生成题目按钮点击事件
-    document.getElementById('generate-btn').addEventListener('click', function() {
-      generateProblems();
-    });
-    
-    document.getElementById('download-btn').addEventListener('click', function() {
-      downloadProblems();
-    });
-    
-    document.getElementById('download-btn-bottom').addEventListener('click', function() {
-      downloadProblems();
-    });
-    
-    // 生成题目函数
-    function generateProblems() {
-      const problemContainer = document.getElementById('problem-container');
-      problemContainer.innerHTML = '';
-      
-      // 获取选中的学科
-      const selectedSubjectCard = document.querySelector('.subject-card.active');
-      const selectedSubject = selectedSubjectCard ? selectedSubjectCard.getAttribute('data-subject') : 'math';
-      
-      // 获取选中的难度
-      const selectedDifficultyCard = document.querySelector('.difficulty-card.active');
-      const selectedDifficulty = selectedDifficultyCard ? selectedDifficultyCard.getAttribute('data-level') : 'grade1';
-      
-      // 获取题目数量
-      const questionCount = parseInt(document.getElementById('question-count').value);
-      
-      // 生成题目
-      for (let i = 0; i < questionCount; i++) {
-        const problem = createProblem(selectedSubject, selectedDifficulty, i + 1);
-        problemContainer.appendChild(problem);
-      }
-      
-      // 平滑滚动到生成的题目部分
-      document.getElementById('generated-problems').scrollIntoView({ behavior: 'smooth' });
-    }
-    
-    // 创建单个题目元素
-    function createProblem(subject, difficulty, number) {
-      const problemDiv = document.createElement('div');
-      problemDiv.className = 'math-card';
-      
-      // 根据学科和难度生成题目内容
-      let problemContent = '';
-      let subjectColor = '';
-      let subjectIcon = '';
-      let difficultyText = '';
-      
-      // 设置学科颜色和图标
-      switch(subject) {
-        case 'math':
-          subjectColor = 'text-primary';
-          subjectIcon = 'fa-calculator';
-          break;
-        case 'chinese':
-          subjectColor = 'text-chinese';
-          subjectIcon = 'fa-book';
-          break;
-        case 'english':
-          subjectColor = 'text-english';
-          subjectIcon = 'fa-language';
-          break;
-        case 'science':
-          subjectColor = 'text-science';
-          subjectIcon = 'fa-flask';
-          break;
-        case 'history':
-          subjectColor = 'text-history';
-          subjectIcon = 'fa-university';
-          break;
-      }
-      
-      // 设置难度文本
-      switch(difficulty) {
-        case 'kindergarten':
-          difficultyText = '幼小衔接';
-          break;
-        case 'grade1':
-          difficultyText = '一年级';
-          break;
-        case 'grade2':
-          difficultyText = '二年级';
-          break;
-        case 'grade3':
-          difficultyText = '三年级';
-          break;
-        case 'grade4':
-          difficultyText = '四年级';
-          break;
-        case 'grade5':
-          difficultyText = '五年级';
-          break;
-        case 'grade6':
-          difficultyText = '六年级';
-          break;
-      }
-      
-      // 根据学科和难度生成不同类型的题目
-      if (subject === 'math') {
-        // 数学题目生成
-        let problemType = '';
-        let problemText = '';
-        let options = [];
-        let correctAnswer = '';
-        
-        // 根据难度确定数值范围
-        let maxNumber = 10;
-        if (difficulty === 'grade1') maxNumber = 20;
-        else if (difficulty === 'grade2') maxNumber = 100;
-        else if (difficulty === 'grade3') maxNumber = 1000;
-        else if (difficulty === 'grade4') maxNumber = 10000;
-        else if (difficulty === 'grade5') maxNumber = 100000;
-        else if (difficulty === 'grade6') maxNumber = 1000000;
-        
-        // 随机选择题目类型
-        const typeOptions = ['add', 'subtract'];
-        if (difficulty === 'grade2' || difficulty === 'grade3') typeOptions.push('multiply');
-        if (difficulty === 'grade3') typeOptions.push('divide');
-        if (difficulty === 'grade4') typeOptions.push('fraction');
-        if (difficulty === 'grade5' || difficulty === 'grade6') typeOptions.push('decimal', 'geometry');
-        
-        const randomType = typeOptions[Math.floor(Math.random() * typeOptions.length)];
-        
-        if (randomType === 'add') {
-          // 加法题
-          problemType = '加法题';
-          const num1 = Math.floor(Math.random() * maxNumber) + 1;
-          const num2 = Math.floor(Math.random() * maxNumber) + 1;
-          correctAnswer = num1 + num2;
-          problemText = `${num1} + ${num2} = ?`;
-          
-          // 生成选项
-          options = [correctAnswer];
-          while(options.length < 4) {
-            const wrongAnswer = correctAnswer + (Math.floor(Math.random() * 10) + 1) * (Math.random() > 0.5 ? 1 : -1);
-            if (!options.includes(wrongAnswer)) {
-              options.push(wrongAnswer);
-            }
-          }
-          
-          // 打乱选项顺序
-          options.sort(() => Math.random() - 0.5);
-        } else if (randomType === 'subtract') {
-          // 减法题
-          problemType = '减法题';
-          const num1 = Math.floor(Math.random() * maxNumber) + 1;
-          const num2 = Math.floor(Math.random() * num1) + 1;
-          correctAnswer = num1 - num2;
-          problemText = `${num1} - ${num2} = ?`;
-          
-          // 生成选项
-          options = [correctAnswer];
-          while(options.length < 4) {
-            const wrongAnswer = correctAnswer + (Math.floor(Math.random() * 10) + 1) * (Math.random() > 0.5 ? 1 : -1);
-            if (!options.includes(wrongAnswer) && wrongAnswer >= 0) {
-              options.push(wrongAnswer);
-            }
-          }
-          
-          // 打乱选项顺序
-          options.sort(() => Math.random() - 0.5);
-        } else if (randomType === 'multiply') {
-          // 乘法题
-          problemType = '乘法题';
-          const num1 = Math.floor(Math.random() * 10) + 1;
-          const num2 = Math.floor(Math.random() * 10) + 1;
-          correctAnswer = num1 * num2;
-          problemText = `${num1} × ${num2} = ?`;
-          
-          // 生成选项
-          options = [correctAnswer];
-          while(options.length < 4) {
-            const wrongAnswer = correctAnswer + (Math.floor(Math.random() * 10) + 1) * (Math.floor(Math.random() * 10) + 1) * (Math.random() > 0.5 ? 1 : -1);
-            if (!options.includes(wrongAnswer)) {
-              options.push(wrongAnswer);
-            }
-          }
-          
-          // 打乱选项顺序
-          options.sort(() => Math.random() - 0.5);
-        } else if (randomType === 'divide') {
-          // 除法题
-          problemType = '除法题';
-          const num2 = Math.floor(Math.random() * 9) + 2; // 避免除以0和1
-          const result = Math.floor(Math.random() * 10) + 1;
-          const num1 = num2 * result;
-          correctAnswer = result;
-          problemText = `${num1} ÷ ${num2} = ?`;
-          
-          // 生成选项
-          options = [correctAnswer];
-          while(options.length < 4) {
-            const wrongAnswer = correctAnswer + (Math.floor(Math.random() * 5) + 1) * (Math.random() > 0.5 ? 1 : -1);
-            if (!options.includes(wrongAnswer) && wrongAnswer > 0) {
-              options.push(wrongAnswer);
-            }
-          }
-          
-          // 打乱选项顺序</script></body></html>
+  </script>
+</body>
+
+</html>
